@@ -1,12 +1,12 @@
-import React, { useState,useRef } from "react";
+import React, { useState } from "react";
 import {Link, useNavigate} from 'react-router-dom';
 import InputControl from "../inputControl/Inputcontrol";
 import styles from './Login.module.css'
 import { signInWithEmailAndPassword } from "firebase/auth";
 import {auth} from "../../firebase";
-//import { IconName } from "react-icons/bs";
+
 function Login(){
-    // const auth = getAuth();
+  
     const navigate = useNavigate();
     const [errMsg, setErrMsg] = useState("");
     const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
@@ -25,11 +25,7 @@ const handleSubmit=()=>{
    signInWithEmailAndPassword(auth, values.email, values.Password)
    .then(async(res)=>{
     setSubmitButtonDisabled(false);
-    //TODO: display the user name 
-    // const user = res.user;
-    // await updateProfile(user,{
-    //     displayName:values.email,
-    // });
+    
     navigate("/Home")
    })
    .catch((err)=>{
